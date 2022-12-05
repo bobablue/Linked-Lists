@@ -1,7 +1,5 @@
-#!/usr/bin/env python
-# coding: utf-8
+# Singly linked list 
 
-#%% Singly linked list
 class Node:
     def __init__(self, data):
         self.data = data
@@ -9,6 +7,7 @@ class Node:
 
     def __repr__(self):
         return(str(self.data))
+
 
 class LinkedList:
     def __init__(self, nodes=None):
@@ -95,17 +94,17 @@ class LinkedList:
 
         raise Exception(f'Node with data {target_node_data} not found')
 
-    def remove_node(self, target_node_data):
+    def remove_node(self, target_node):
         if self.head is None:
             raise Exception("List is empty")
 
-        if self.head.data==target_node_data:
+        if self.head.data==target_node:
             self.head = self.head.next
             return
 
         prev_node = self.head
         for node in self:
-            if node.data==target_node_data:
+            if node.data==target_node:
                 prev_node.next = node.next
                 return
             prev_node = node
@@ -128,55 +127,46 @@ class LinkedList:
             count = count+1
         return(count)
 
-#%%
+
 llist = LinkedList([1,2,3])
 print(llist)
 
-#%%
 llist = LinkedList([1,2,3])
 for i in llist:
     print(i)
 
-#%%
 llist = LinkedList([1,2,3])
 print(llist[0], llist[-1])
 
-#%%
 llist = LinkedList([1,2,3])
 print(llist)
 llist.add_first(Node(0))
 print(llist)
 
-#%%
 llist = LinkedList([1,2,3])
 print(llist)
 llist.add_last(Node(4))
 print(llist)
 
-#%%
 llist = LinkedList([1,2,3])
 print(llist)
 llist.add_after(2,Node(2.5))
 print(llist)
 
-#%%
 llist = LinkedList([1,2,3])
 print(llist)
 llist.add_before(2,Node(1.5))
 print(llist)
 
-#%%
 llist = LinkedList([1,2,3])
 print(llist)
 llist.remove_node(1)
 print(llist)
 
-#%%
 llist = LinkedList([1,2,3])
 print(llist)
 llist.reverse()
 print(llist)
 
-#%%
 llist = LinkedList([1,2,3])
 llist.length()
